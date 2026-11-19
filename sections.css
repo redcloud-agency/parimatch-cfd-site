@@ -183,14 +183,14 @@
 .sport-caption p { margin-top: .2rem; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .football.is-playing .sport-ball { animation: ball-roll 1.3s both cubic-bezier(.18, .7, .24, 1); }
+  .football.is-playing .sport-ball { animation: ball-roll 1.85s .15s both ease-out; }
   .hockey.is-playing .sport-stick { animation: stick-swing .8s both .2s; }
   .hockey.is-playing .sport-puck { animation: puck-shot 1.6s both .2s; }
 }
 @keyframes ball-roll {
-  0% { transform: translate(-260%, -50%) rotate(-450deg); }
-  65% { transform: translate(-51%, -62%) rotate(-20deg); }
-  82% { transform: translate(-47%, -50%) rotate(5deg); }
+  0% { transform: translate(-260%, -39%) rotate(-240deg); }
+  58% { transform: translate(-99%, -48%) rotate(-56deg); }
+  82% { transform: translate(-55%, -58%) rotate(-6deg); }
   100% { transform: translate(-50%, -50%) rotate(0); }
 }
 @keyframes stick-swing {
