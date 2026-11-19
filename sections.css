@@ -13,7 +13,30 @@
   font-size: clamp(2.25rem, 4.3vw, 3.6rem);
   white-space: nowrap;
 }
-#steps, #line, #bets { scroll-margin-top: 4.75rem; }
+#why, #steps, #line, #bets { scroll-margin-top: 4.75rem; }
+
+/* Keep the space between neighboring sections from stacking up. */
+#why, #steps, #line {
+  padding-block: clamp(1.25rem, 2.5vw, 2rem);
+}
+#line + #bets {
+  padding-block-start: clamp(1.25rem, 2.5vw, 2rem);
+}
+#why h2, #line h2 {
+  margin-bottom: .9rem;
+  line-height: 1.18;
+}
+#why .benefits {
+  gap: .75rem;
+}
+#why .item {
+  min-height: 0;
+  gap: .45rem;
+  padding: clamp(.85rem, 1.6vw, 1.1rem);
+}
+#why .item .muted {
+  margin-top: 0;
+}
 
 /* The markers and road share the same grid so their centers stay aligned. */
 .steps {
