@@ -13,16 +13,19 @@
   font-size: clamp(2.25rem, 4.3vw, 3.6rem);
   white-space: nowrap;
 }
-#why, #steps, #line, #bets { scroll-margin-top: 4.75rem; }
+#why, #steps, #line, #bets, #faq { scroll-margin-top: 4.75rem; }
 
 /* Keep the space between neighboring sections from stacking up. */
 #why, #steps, #line {
   padding-block: clamp(1.25rem, 2.5vw, 2rem);
 }
-#line + #bets {
+#line + #bets, #register + #faq {
   padding-block-start: clamp(1.25rem, 2.5vw, 2rem);
 }
-#why h2, #line h2 {
+#register {
+  padding-block-end: clamp(1.25rem, 2.5vw, 2rem);
+}
+#why h2, #line h2, #faq h2 {
   margin-bottom: .9rem;
   line-height: 1.18;
 }
