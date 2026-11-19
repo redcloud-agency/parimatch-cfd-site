@@ -63,6 +63,50 @@
     .stack { display: grid; gap: .55rem; margin-top: 1rem; }
     .btn.ghost { background: transparent; color: #fff; border: 1px solid var(--line); }
     .hidden { display: none; }
+
+    /* Editorial refresh: consistent rhythm, stronger hierarchy, cleaner cards */
+    :root { --bg:#090e16; --card:#121a27; --line:#273346; --fg:#f4f6fb; --muted:#a8b2c1; --lime:#d8ff63; --ink:#101609; }
+    body { background: radial-gradient(ellipse at 78% 0%, #17273a 0, transparent 36rem), var(--bg); }
+    .bar, .wrap { max-width: 72rem; }
+    .bar { min-height: 76px; }
+    header { background: rgba(9,14,22,.9); border-color: rgba(168,178,193,.16); }
+    nav { gap: clamp(.65rem, 1.4vw, 1.25rem); }
+    nav > a:not(.btn) { transition: color .18s ease; }
+    nav > a:not(.btn):hover { color: var(--fg); }
+    .hero { gap: clamp(1.5rem, 4vw, 3.25rem); padding: clamp(2.4rem, 7vw, 5.5rem) 0 2rem; }
+    .eyebrow { margin: 0 0 1rem; color: var(--lime); font-size: .76rem; font-weight: 800; letter-spacing: .15em; }
+    h1 { max-width: 12ch; font-size: clamp(2.7rem, 6vw, 5.1rem); letter-spacing: -.055em; }
+    .lead { max-width: 34rem; margin: 1.25rem 0 1.6rem; font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.55; }
+    .hero > .card { padding: clamp(1.25rem, 3vw, 2rem); border-color: rgba(216,255,99,.25); background: linear-gradient(145deg, rgba(22,34,50,.97), rgba(14,21,32,.97)); box-shadow: 0 28px 80px rgba(0,0,0,.25); }
+    .section { padding: clamp(2.8rem, 6vw, 5rem) 0; }
+    h2 { margin-bottom: 1.2rem; font-size: clamp(1.8rem, 3.4vw, 2.55rem); letter-spacing: -.035em; }
+    .benefits { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+    .item { min-height: 11rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: .65rem; padding: 1.25rem; border-color: rgba(168,178,193,.14); background: linear-gradient(150deg, rgba(20,30,44,.96), rgba(14,21,31,.96)); }
+    .item-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .65rem; background: rgba(216,255,99,.12); color: var(--lime); font-size: .75rem; font-weight: 800; }
+    .item .muted { line-height: 1.45; }
+    .photos article, .step, .bet-card, .acc { border-color: rgba(168,178,193,.15); background: rgba(18,26,39,.92); }
+    .photos img { height: clamp(150px, 19vw, 220px); }
+    .steps { gap: .9rem; }
+    .step { padding: 1.15rem; }
+    .reg { border-radius: 1.5rem; padding: clamp(1.4rem, 4vw, 2.4rem); }
+    .btn { min-height: 3.25rem; padding-inline: 1.45rem; transition: transform .18s ease, filter .18s ease; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.04); }
+    .btn:focus-visible, summary:focus-visible, nav a:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+    .ft { max-width: 72rem; padding-top: 1.6rem; }
+    @media (max-width: 720px) {
+      .bar { min-height: 68px; }
+      nav { gap: .5rem; }
+      nav .btn { padding-inline: .95rem; font-size: .83rem; }
+      .hero { padding-top: 2.2rem; }
+      .hero > .card { border-radius: 1.25rem; }
+      .section { padding: 2.6rem 0; }
+    }
+    @media (max-width: 520px) {
+      .benefits, .photos, .bet-cards { grid-template-columns: 1fr; }
+      .item { min-height: 0; }
+      .steps { gap: .65rem; }
+      .step { padding: .95rem; }
+    }
   </style>
 </head>
 <body>
@@ -70,7 +114,7 @@
     <div class="modal">
       <p class="tag">ТОЛЬКО РФ · 21+</p>
       <h2 id="age-title">Подтвердите возраст</h2>
-      <p id="age-text" class="muted">Сайт про ставки на спорт. Доступ только лицам от 21 года, находящимся в Российской Федерации. Азартные игры могут вызывать зависимость.</p>
+      <p id="age-text" class="muted">Сайт про ставки на спорт. Доступ только лицам от 21 года, находящимся в Российской Федерации. Азартные игры могут вызывать зависимость</p>
       <div class="stack">
         <button class="btn" id="yes" type="button">Мне есть 21, я в РФ</button>
         <button class="btn ghost" id="no" type="button">Мне нет 21</button>
@@ -80,14 +124,12 @@
 
   <header>
     <div class="bar">
-      <a class="brand" href="https://pari.ru/"><span class="pari">PARI</span></a>
+      <a class="brand" href="https://pari.ru/" aria-label="PARI"><span class="pari">PARI</span></a>
       <nav>
         <a class="hide" href="#why">Почему Пари</a>
         <a class="hide" href="#line">Линия</a>
         <a class="hide" href="#faq">Ответы на вопросы</a>
-        <a class="btn sm" id="dl" href="/pari-site.html">Скачать</a>
-        <a class="btn sm" href="https://pari.ru/">Зарегистрироваться</a>
-        <a class="btn" id="dl-fixed" href="/pari-site.html" style="position:fixed;right:16px;bottom:16px;z-index:30">Скачать сайт</a>
+        <a class="btn sm" href="https://rko-group.ru/s/i8RIIcPl">Открыть предложение</a>
       </nav>
     </div>
   </header>
@@ -95,42 +137,40 @@
   <main class="wrap">
     <section class="hero">
       <div>
-        <h1>Легальная БК в ЦУПИС, где смотрят линию, а не только баннер</h1>
-        <p class="lead">Пари: прематч и лайв в рублях. Новым игрокам — фрибеты после регистрации, а не копия чужого процента на депозит.</p>
-        <a class="btn" href="https://pari.ru/">Зарегистрироваться и забрать фрибеты</a>
+        <p class="eyebrow">PARI · СПОРТ И LIVE</p><h1>Спорт и live на PARI</h1>
+        <p class="lead">Футбол, хоккей, теннис и киберспорт. Прематч и live — в линии PARI</p>
+        <a class="btn" href="https://rko-group.ru/s/i8RIIcPl">Открыть предложение</a>
       </div>
       <article class="card">
-        <p class="label">Старт в Пари</p>
-        <p class="xl">5 фрибетов по 1 000 ₽</p>
-        <p class="fine">после регистрации, идентификации и депозита. Итог и срок — на сайте Пари</p>
+        <p class="label">Предложение для новых игроков</p>
+        <p class="xl">До 5 фрибетов по 1 000 ₽</p>
+        <p class="fine">Начисление проходит по правилам акции. Проверьте актуальные условия перед участием</p>
         <hr>
-        <p class="lg">Линия не прячется в купон</p>
-        <p class="note">Матч остаётся в ленте, пока он ещё идёт, а не исчезает на самом счёте</p>
+        <p class="lg">Прематч и live</p>
+        <p class="note">События до начала матча и во время игры</p>
         <hr>
-        <p class="lg">Коэффициенты без скучной середины</p>
-        <p class="note">Футбол, хоккей, теннис, кибер и ещё десятки дисциплин в одной линии</p>
+        <p class="lg">Спортивная линия</p>
+        <p class="note">Футбол, хоккей, теннис, киберспорт и другие дисциплины</p>
       </article>
     </section>
 
     <section class="section" id="why">
       <h2>Почему Пари</h2>
       <div class="benefits">
-        <article class="item"><h3>Широкая линия, не витрина из пяти матчей</h3></article>
-        <article class="item"><h3>Фрибеты, акции и кэшбэк — по правилам Пари</h3></article>
-        <article class="item"><h3>Ставки с телефона: сайт и приложение</h3></article>
-        <article class="item"><h3>Живые предложения, а не один вечный баннер</h3></article>
-        <article class="item"><h3>Поддержка, которая отвечает ночью</h3></article>
-        <article class="item"><h3>Коэффициенты выше вялой середины рынка</h3></article>
+        <article class="item"><span class="item-mark" aria-hidden="true">01</span><h3>Прематч и live</h3><p class="muted">События до начала матча и во время игры</p></article>
+        <article class="item"><span class="item-mark" aria-hidden="true">02</span><h3>Разные виды спорта</h3><p class="muted">Футбол, хоккей, теннис, киберспорт и другие дисциплины</p></article>
+        <article class="item"><span class="item-mark" aria-hidden="true">03</span><h3>Сайт и приложение</h3><p class="muted">Откройте линию с компьютера или телефона</p></article>
+        <article class="item"><span class="item-mark" aria-hidden="true">04</span><h3>Условия акций</h3><p class="muted">Проверьте правила и сроки на странице предложения</p></article>
       </div>
     </section>
 
     <section class="section" id="steps">
       <h2>Как забрать фрибеты</h2>
       <ol class="steps">
-        <li class="step"><span class="n">1</span><div><h3>Откройте Пари</h3><p class="muted">Кнопка ведёт на официальный сайт pari.ru</p></div></li>
+        <li class="step"><span class="n">1</span><div><h3>Откройте Пари</h3><p class="muted">Ссылка ведёт на страницу предложения PARI</p></div></li>
         <li class="step"><span class="n">2</span><div><h3>Зарегистрируйтесь</h3><p class="muted">Только 21+ и РФ. Один аккаунт на человека</p></div></li>
-        <li class="step"><span class="n">3</span><div><h3>Подтвердите личность и пополните счёт</h3><p class="muted">Без идентификации легальная БК фрибет не начислит</p></div></li>
-        <li class="step"><span class="n">4</span><div><h3>Заберите стартовые фрибеты</h3><p class="muted">Пакет 5 × 1 000 ₽ приходит по условиям акции, не сразу целиком</p></div></li>
+        <li class="step"><span class="n">3</span><div><h3>Подтвердите личность и пополните счёт</h3><p class="muted">Порядок начисления указан в правилах приветственной акции</p></div></li>
+        <li class="step"><span class="n">4</span><div><h3>Проверьте начисление фрибетов</h3><p class="muted">До пяти фрибетов по 1 000 ₽ начисляются по правилам акции</p></div></li>
       </ol>
     </section>
 
@@ -148,26 +188,26 @@
       <div class="bet-cards">
         <article class="bet-card"><h3>Ординар</h3><p class="muted">Один исход. Выплата — ставка, умноженная на коэффициент</p></article>
         <article class="bet-card"><h3>Экспресс</h3><p class="muted">Несколько разных матчей. Один промах закрывает купон</p></article>
-        <article class="bet-card"><h3>Система</h3><p class="muted">Набор экспрессов. Ошибка в одном не сжигает всю ставку</p></article>
+        <article class="bet-card"><h3>Система</h3><p class="muted">Набор экспрессов с отдельным расчетом комбинаций</p></article>
       </div>
     </section>
 
     <section class="section" id="register">
       <div class="reg">
         <p class="tag">Пари · 21+</p>
-        <h2>Пять фрибетов вместо одного громкого процента</h2>
-        <p>Легальная БК в ЦУПИС. Новым игрокам — до 5 фрибетов по 1 000 ₽ после регистрации и депозита. Перейдите на Пари и проверьте актуальные условия.</p>
-        <a class="btn" href="https://pari.ru/">Перейти на Пари</a>
+        <h2>Предложения для новых игроков</h2>
+        <p>Новым игрокам доступно до пяти фрибетов по 1 000 ₽. Сроки и порядок начисления проверьте в правилах приветственной акции</p>
+        <a class="btn" href="https://rko-group.ru/s/i8RIIcPl">Открыть предложение</a>
       </div>
     </section>
 
     <section class="section" id="faq">
       <h2>Ответы на вопросы</h2>
       <div class="acc">
-        <details open><summary>Кто может стать клиентом?</summary><p>Пользователи от 21 года, находящиеся в РФ.</p></details>
-        <details><summary>Как получить стартовые фрибеты?</summary><p>Зарегистрируйтесь на Пари, пройдите идентификацию и пополните счёт. Пакет — 5 фрибетов по 1 000 ₽, они начисляются по правилам акции, а не одной суммой в день регистрации.</p></details>
-        <details><summary>Можно ли несколько аккаунтов?</summary><p>Нет, один аккаунт на человека.</p></details>
-        <details><summary>Это безопасно?</summary><p>Да. «Пари» принимает ставки легально, в рублях, через ЦУПИС.</p></details>
+        <details open><summary>Кто может стать клиентом?</summary><p>Пользователи от 21 года, находящиеся в РФ</p></details>
+        <details><summary>Как получить стартовые фрибеты?</summary><p>Точный размер, сроки и порядок начисления указаны в правилах акции</p></details>
+        <details><summary>Можно ли несколько аккаунтов?</summary><p>Нет, один аккаунт на человека</p></details>
+        <details><summary>Где посмотреть правила акций?</summary><p>Условия, сроки и порядок начисления указаны на странице Пари</p></details>
       </div>
     </section>
   </main>
@@ -180,19 +220,6 @@
   </footer>
 
   <script>
-    function saveFile(e) {
-      e.preventDefault();
-      fetch("/pari-site.html").then(function (r) { return r.blob(); }).then(function (b) {
-        var a = document.createElement("a");
-        a.href = URL.createObjectURL(b);
-        a.download = "pari-site.html";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }).catch(function () { window.location.href = "/pari-site.html"; });
-    }
-    document.getElementById("dl").addEventListener("click", saveFile);
-    document.getElementById("dl-fixed").addEventListener("click", saveFile);
     (function () {
       var box = document.getElementById("age");
       var yes = document.getElementById("yes");
