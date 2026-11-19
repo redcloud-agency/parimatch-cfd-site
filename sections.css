@@ -16,14 +16,11 @@
 #why, #steps, #line, #bets, #faq { scroll-margin-top: 4.75rem; }
 
 /* Keep the space between neighboring sections from stacking up. */
-#why, #steps, #line {
+#why, #steps, #line, #bets, #register {
   padding-block: clamp(1.25rem, 2.5vw, 2rem);
 }
-#line + #bets, #register + #faq {
+#register + #faq {
   padding-block-start: clamp(1.25rem, 2.5vw, 2rem);
-}
-#register {
-  padding-block-end: clamp(1.25rem, 2.5vw, 2rem);
 }
 #why h2, #line h2, #faq h2 {
   margin-bottom: .9rem;
